@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/volunteer")
 public class VolunteerController {
-
     private final VolunteerService volunteerService;
 
     public VolunteerController(VolunteerService volunteerService) {

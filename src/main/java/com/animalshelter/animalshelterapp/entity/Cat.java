@@ -5,7 +5,6 @@ import java.util.Objects;
 
 @Entity
 public class Cat {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

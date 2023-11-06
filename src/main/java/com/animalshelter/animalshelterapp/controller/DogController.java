@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/dog")
 public class DogController {
-
     private final DogService dogService;
 
     public DogController(DogService dogService) {

@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Objects;
 @Entity
 public class Volunteer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

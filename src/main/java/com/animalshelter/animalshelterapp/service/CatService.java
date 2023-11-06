@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CatService {
-
     private static final Logger logger = LoggerFactory.getLogger(CatService.class);
 
     private final CatRepository catRepository;

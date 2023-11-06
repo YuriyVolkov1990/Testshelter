@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DogService {
-
     private static final Logger logger = LoggerFactory.getLogger(DogService.class);
 
     private final DogRepository dogRepository;
