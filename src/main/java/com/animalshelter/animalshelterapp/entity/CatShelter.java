@@ -3,7 +3,15 @@ package com.animalshelter.animalshelterapp.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
-
+/**
+ * Класс, отвечающий за создание сущности CatShelter, описывающей приюты для котов в базе данных
+ * Поля класса: id - номер приюта в базе, присваивается автоматически
+ *              info - расписание работы приюта и адрес, схема проезда
+ *              guard_data - контактные данные охраны для оформления пропуска на машину
+ *              recommendation - рекомендации о технике безопасности на территории приюта
+ *              contact - контактные данные для связи
+ * Автор: Юрий Волков
+ */
 @Entity
 @Table(name = "cat_shelter")
 public class CatShelter {
