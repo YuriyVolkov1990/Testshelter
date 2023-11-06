@@ -8,6 +8,7 @@ import java.util.Objects;
 @Table(name = "dog_shelter")
 public class DogShelter {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

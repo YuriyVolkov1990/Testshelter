@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReplyKeyboardMaker {
+
     public ReplyKeyboardMarkup getMainMenuKeyboard() {
         KeyboardButton m1 = new KeyboardButton(ButtonNameEnum.CAT.getButtonName());
         KeyboardButton m2 = new KeyboardButton(ButtonNameEnum.DOG.getButtonName());

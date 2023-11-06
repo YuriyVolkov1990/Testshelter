@@ -14,6 +14,7 @@ import org.springframework.statemachine.config.EnableStateMachineFactory;
 //@EnableJpaRepositories
 public class ShelterBotConfiguration{
 
+
     @Value("${telegram.bot.token}")
     private String token;
 

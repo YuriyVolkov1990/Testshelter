@@ -1,6 +1,7 @@
 package com.animalshelter.animalshelterapp.keyboard;
 
 public enum ButtonNameEnum {
+
     CAT("Выбрать приют для кошек"),
     DOG("Выбрать приют для собак"),
     INFO_CAT("Инфо про кошачий приют"),

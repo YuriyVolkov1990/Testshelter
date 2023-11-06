@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cat")
 public class CatController {
+
     private final CatService catService;
 
     public CatController(CatService catService) {

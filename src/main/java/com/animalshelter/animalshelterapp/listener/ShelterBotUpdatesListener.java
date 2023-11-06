@@ -17,6 +17,7 @@ import java.util.List;
 
 @Service
 public class ShelterBotUpdatesListener implements UpdatesListener {
+
     private final Logger logger = LoggerFactory.getLogger(ShelterBotUpdatesListener.class);
     @Autowired
     private ReplyKeyboardMaker replyKeyboardMaker;

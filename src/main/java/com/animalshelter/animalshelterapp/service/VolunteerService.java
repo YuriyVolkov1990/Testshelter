@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VolunteerService {
+
     private static final Logger logger = LoggerFactory.getLogger(DogService.class);
     private final VolunteerRepository volunteerRepository;
 
