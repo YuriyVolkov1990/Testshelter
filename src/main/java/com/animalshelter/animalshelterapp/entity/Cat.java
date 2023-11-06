@@ -4,13 +4,16 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public abstract class Cat {
+public class Cat {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int age;
     private int weight;
+
+    public Cat() {
+    }
 
     public Cat(Long id, String name, int age, int weight) {
         this.id = id;
