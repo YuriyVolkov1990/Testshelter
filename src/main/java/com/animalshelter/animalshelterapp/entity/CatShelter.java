@@ -12,17 +12,17 @@ public class CatShelter {
     private Long id;
     @Column(name = "info")
     private String info;
-    @Column(name = "guardData")
-    private String guardData;
+    @Column(name = "guard_data")
+    private String guard_data;
     @Column(name = "recommendation")
     private String recommendation;
     @Column(name = "contact")
     private String contact;
 
-    public CatShelter(Long id, String info, String guardData, String recommendation, String contact) {
+    public CatShelter(Long id, String info, String guard_data, String recommendation, String contact) {
         this.id = id;
         this.info = info;
-        this.guardData = guardData;
+        this.guard_data = guard_data;
         this.recommendation = recommendation;
         this.contact = contact;
     }
@@ -48,11 +48,11 @@ public class CatShelter {
     }
 
     public String getGuardData() {
-        return guardData;
+        return guard_data;
     }
 
-    public void setGuardData(String guardData) {
-        this.guardData = guardData;
+    public void setGuardData(String guard_data) {
+        this.guard_data = guard_data;
     }
 
     public String getRecommendation() {
@@ -76,12 +76,12 @@ public class CatShelter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CatShelter that = (CatShelter) o;
-        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guardData, that.guardData) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
+        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, info, guardData, recommendation, contact);
+        return Objects.hash(id, info, guard_data, recommendation, contact);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class CatShelter {
         return "CatShelter{" +
                 "id=" + id +
                 ", info='" + info + '\'' +
-                ", guardData='" + guardData + '\'' +
+                ", guard_data='" + guard_data + '\'' +
                 ", recommendation='" + recommendation + '\'' +
                 ", contact='" + contact + '\'' +
                 '}';

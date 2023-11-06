@@ -1,9 +1,6 @@
 package com.animalshelter.animalshelterapp.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -12,18 +9,21 @@ public class Dog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    @Column(name = "game")
+    private String game;
+    @Column(name = "age")
     private int age;
-    private int weight;
+    @Column(name = "color")
+    private String color;
 
     public Dog() {
     }
 
-    public Dog(Long id, String name, int age, int weight) {
+    public Dog(Long id, String game, int age, String color) {
         this.id = id;
-        this.name = name;
+        this.game = game;
         this.age = age;
-        this.weight = weight;
+        this.color = color;
     }
 
     public Long getId() {
@@ -34,12 +34,12 @@ public class Dog {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getGame() {
+        return game;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGame(String game) {
+        this.game = game;
     }
 
     public int getAge() {
@@ -50,12 +50,12 @@ public class Dog {
         this.age = age;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getColor() {
+        return color;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -63,21 +63,21 @@ public class Dog {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
-        return id == dog.id && age == dog.age && weight == dog.weight && Objects.equals(name, dog.name);
+        return age == dog.age && Objects.equals(id, dog.id) && Objects.equals(game, dog.game) && Objects.equals(color, dog.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, weight);
+        return Objects.hash(id, game, age, color);
     }
 
     @Override
     public String toString() {
         return "Dog{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", game='" + game + '\'' +
                 ", age=" + age +
-                ", weight=" + weight +
+                ", color='" + color + '\'' +
                 '}';
     }
 }

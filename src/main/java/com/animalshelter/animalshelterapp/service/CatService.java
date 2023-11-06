@@ -33,7 +33,7 @@ public class CatService {
         logger.info("Запускаем метод updateCat. Изменяем информацию о коте");
         Cat existingCat = catRepository.findById(catId)
                 .orElseThrow(EntityNotFoundException::new);
-        existingCat.setName(cat.getName());
+        existingCat.setGame(cat.getGame());
         existingCat.setAge(cat.getAge());
         return catRepository.save(existingCat);
     }

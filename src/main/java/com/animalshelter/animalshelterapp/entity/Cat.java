@@ -8,18 +8,21 @@ public class Cat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    @Column(name = "game")
+    private String game;
+    @Column(name = "age")
     private int age;
-    private int weight;
+    @Column(name = "color")
+    private String color;
 
     public Cat() {
     }
 
-    public Cat(Long id, String name, int age, int weight) {
+    public Cat(Long id, String game, int age, String color) {
         this.id = id;
-        this.name = name;
+        this.game = game;
         this.age = age;
-        this.weight = weight;
+        this.color = color;
     }
 
     public Long getId() {
@@ -30,12 +33,12 @@ public class Cat {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getGame() {
+        return game;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGame(String game) {
+        this.game = game;
     }
 
     public int getAge() {
@@ -46,12 +49,12 @@ public class Cat {
         this.age = age;
     }
 
-    public int getWeight() {
-        return weight;
+    public String getColor() {
+        return color;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
@@ -59,21 +62,21 @@ public class Cat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cat cat = (Cat) o;
-        return id == cat.id && age == cat.age && weight == cat.weight && Objects.equals(name, cat.name);
+        return age == cat.age && Objects.equals(id, cat.id) && Objects.equals(game, cat.game) && Objects.equals(color, cat.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, weight);
+        return Objects.hash(id, game, age, color);
     }
 
     @Override
     public String toString() {
         return "Cat{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", game='" + game + '\'' +
                 ", age=" + age +
-                ", weight=" + weight +
+                ", color='" + color + '\'' +
                 '}';
     }
 }

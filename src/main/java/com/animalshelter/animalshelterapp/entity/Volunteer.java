@@ -1,17 +1,27 @@
 package com.animalshelter.animalshelterapp.entity;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
 public class Volunteer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    @Column(name = "game")
+    private String game;
+    @Column(name = "surname")
     private String surname;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "email")
     private String email;
 
-    public Volunteer(Long id, String name, String surname, String phone, String email) {
+    public Volunteer() {
+    }
+
+    public Volunteer(Long id, String game, String surname, String phone, String email) {
         this.id = id;
-        this.name = name;
+        this.game = game;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
@@ -26,11 +36,11 @@ public class Volunteer {
     }
 
     public String getName() {
-        return name;
+        return game;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String game) {
+        this.game = game;
     }
 
     public String getSurname() {
@@ -62,19 +72,19 @@ public class Volunteer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Volunteer volunteer = (Volunteer) o;
-        return Objects.equals(id, volunteer.id) && Objects.equals(name, volunteer.name) && Objects.equals(surname, volunteer.surname) && Objects.equals(phone, volunteer.phone) && Objects.equals(email, volunteer.email);
+        return Objects.equals(id, volunteer.id) && Objects.equals(game, volunteer.game) && Objects.equals(surname, volunteer.surname) && Objects.equals(phone, volunteer.phone) && Objects.equals(email, volunteer.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, phone, email);
+        return Objects.hash(id, game, surname, phone, email);
     }
 
     @Override
     public String toString() {
         return "Volunteer{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", game='" + game + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +

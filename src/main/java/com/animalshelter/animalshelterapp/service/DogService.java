@@ -32,7 +32,7 @@ public class DogService {
         logger.info("Запускаем метод updateDog. Изменяем информацию о собаке");
         Dog existingDog = dogRepository.findById(dogId)
                 .orElseThrow(EntityNotFoundException::new);
-        existingDog.setName(dog.getName());
+        existingDog.setGame(dog.getGame());
         existingDog.setAge(dog.getAge());
         return dogRepository.save(existingDog);
     }

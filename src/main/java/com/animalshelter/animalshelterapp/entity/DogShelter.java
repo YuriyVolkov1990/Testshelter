@@ -7,27 +7,27 @@ import java.util.Objects;
 @Entity
 @Table(name = "dog_shelter")
 public class DogShelter {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
-    private String name;
     @Column(name = "info")
     private String info;
-    @Column(name = "guardData")
-    private String guardData;
+    @Column(name = "guard_data")
+    private String guard_data;
     @Column(name = "recommendation")
     private String recommendation;
     @Column(name = "contact")
     private String contact;
 
-    public DogShelter(Long id, String name, String info, String guardData, String recommendation, String contact) {
+    public DogShelter(Long id, String name, String info, String guard_data, String recommendation, String contact) {
         this.id = id;
-        this.name = name;
         this.info = info;
-        this.guardData = guardData;
+        this.guard_data = guard_data;
         this.recommendation = recommendation;
         this.contact = contact;
+    }
+    public DogShelter(Long id) {
     }
 
     public Long getId() {
@@ -38,13 +38,6 @@ public class DogShelter {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getInfo() {
         return info;
@@ -55,11 +48,11 @@ public class DogShelter {
     }
 
     public String getGuardData() {
-        return guardData;
+        return guard_data;
     }
 
-    public void setGuardData(String guardData) {
-        this.guardData = guardData;
+    public void setGuardData(String guard_data) {
+        this.guard_data = guard_data;
     }
 
     public String getRecommendation() {
@@ -83,21 +76,20 @@ public class DogShelter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DogShelter that = (DogShelter) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(info, that.info) && Objects.equals(guardData, that.guardData) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
+        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, info, guardData, recommendation, contact);
+        return Objects.hash(id, info, guard_data, recommendation, contact);
     }
 
     @Override
     public String toString() {
         return "DogShelter{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", info='" + info + '\'' +
-                ", guardData='" + guardData + '\'' +
+                ", guard_data='" + guard_data + '\'' +
                 ", recommendation='" + recommendation + '\'' +
                 ", contact='" + contact + '\'' +
                 '}';
