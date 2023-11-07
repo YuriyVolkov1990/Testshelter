@@ -68,20 +68,25 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         updates.forEach(update -> {
             String text = update.message().text();
             Long chatId = update.message().chat().id();
-            switch (text) {
-                case "Инфо про кошачий приют" -> {
-                    infoMenu(chatId);
-                }
+            System.out.println("+++++++++++++++++++++++++++");
+            System.out.println(text);
+            System.out.println(chatId);
+            System.out.println("+++++++++++++++++++++++++++");
+            if (text.equals("Инфо про кошачий приют")) {
+                String info = shelterBotConfiguration.catShelter().getInfo();
+                SendMessage infoMessage = new SendMessage(chatId, info);
+                telegramBot.execute(infoMessage);
+//                infoMenu(chatId);
             }
         });
     }
 
-    private void infoMenu(Long chatId) {
-        String info = shelterBotConfiguration.catShelter().getInfo();
-        System.out.println(info);
-        SendMessage infoMessage = new SendMessage(chatId, info);
-        telegramBot.execute(infoMessage);
-    }
+//    private void infoMenu(Long chatId) {
+//        String info = shelterBotConfiguration.catShelter().getInfo();
+//        System.out.println(info);
+//        SendMessage infoMessage = new SendMessage(chatId, info);
+//        telegramBot.execute(infoMessage);
+//    }
 
     private void dogMenu(List<Update> updates) {
         updates.forEach(update -> {
