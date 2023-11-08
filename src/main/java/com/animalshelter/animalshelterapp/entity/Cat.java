@@ -3,6 +3,14 @@ package com.animalshelter.animalshelterapp.entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * Класс, отвечающий за создание сущности Cat, описывающей кота в базе данных
+ * Поля класса: id - номер животного в базе, присваивается автоматически
+ *              game - имя животного (почему-то скрипты в shelter.sql, если написать name text not null, считают name типом данных так же, как text)
+ *              age - возраст
+ *              color - цвет
+ * Автор: Юрий Волков
+ */
 @Entity
 public class Cat {
     @Id

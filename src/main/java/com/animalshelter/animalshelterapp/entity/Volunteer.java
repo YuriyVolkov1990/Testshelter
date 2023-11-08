@@ -2,6 +2,14 @@ package com.animalshelter.animalshelterapp.entity;
 
 import javax.persistence.*;
 import java.util.Objects;
+/**
+ * Класс, отвечающий за создание сущности Volunteer, описывающей волонтера в базе данных
+ * Поля класса: id - номер волонтера в базе, присваивается автоматически
+ *              game - имя волонтера (почему-то скрипты в shelter.sql, если написать name text not null, считают name типом данных так же, как text)
+ *              phone - номер телефона
+ *              email - адрес электронной почты
+ * Автор: Юрий Волков
+ */
 @Entity
 public class Volunteer {
     @Id
