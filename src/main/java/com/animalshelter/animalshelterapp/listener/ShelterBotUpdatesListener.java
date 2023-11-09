@@ -5,7 +5,11 @@ import com.animalshelter.animalshelterapp.entity.CatShelter;
 import com.animalshelter.animalshelterapp.keyboard.*;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
+import com.pengrad.telegrambot.model.CallbackQuery;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.ForceReply;
+import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
+import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
 import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
@@ -61,13 +65,21 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
-
         private void catStepMenu(List<Update> updates) {
         updates.forEach(update -> {
             String text = update.message().text();
             Long chatId = update.message().chat().id();
             SendMessage sendMessage = new SendMessage(chatId, "Вы выбрали приют для котов, далее выберите нужный вам пункт меню");
-            sendMessage.replyMarkup(replyKeyboardMaker.getStepMenuKeyboard());
+//            sendMessage.replyMarkup(replyKeyboardMaker.getStepMenuKeyboard());
+            sendMessage.replyMarkup(inlineKeyboardMaker.inlineKeyboardMarkup());
+            GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
+            List<Update> updates1 = updatesResponse.updates();
+            for (Update update1: updates1) {
+                 CallbackQuery callbackQuery = update1.callbackQuery();
+                 if (callbackQuery != null)  {
+
+                 }
+            }
             telegramBot.execute(sendMessage);
             switch (text) {
                 case "Узнать информацию о приюте" -> stepOneCatMenu(updates);
