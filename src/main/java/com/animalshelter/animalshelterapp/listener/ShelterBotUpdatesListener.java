@@ -85,7 +85,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
             sendMessage.replyMarkup(replyKeyboardMaker.getCatMenuKeyboard());
             telegramBot.execute(sendMessage);
             switch (text) {
-                case "Узнать информацию о приюте" -> {
+                case "Инфо про кошачий приют" -> {
                     String info = shelterBotConfiguration.catShelter().getInfo();
                     SendMessage infoMessage = new SendMessage(chatId, info);
                     telegramBot.execute(infoMessage);
@@ -94,7 +94,6 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 //                case "РЕКОМЕНДАЦИИ КОТЫ" ->
 //                case "КОНТАКТЫ КОТЫ" ->
 //                case "ПОЗВАТЬ ВОЛОНТЕРА" ->
-//                case "волонтер" ->
             }
         });
     }
