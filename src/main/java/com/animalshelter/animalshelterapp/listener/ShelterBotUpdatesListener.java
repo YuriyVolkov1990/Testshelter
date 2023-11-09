@@ -2,11 +2,13 @@ package com.animalshelter.animalshelterapp.listener;
 
 import com.animalshelter.animalshelterapp.configuration.ShelterBotConfiguration;
 import com.animalshelter.animalshelterapp.entity.CatShelter;
-import com.animalshelter.animalshelterapp.keyboard.ReplyKeyboardMaker;
+import com.animalshelter.animalshelterapp.keyboard.*;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.GetUpdatesResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
     private final Logger logger = LoggerFactory.getLogger(ShelterBotUpdatesListener.class);
     @Autowired
     private ReplyKeyboardMaker replyKeyboardMaker;
+    @Autowired
+    private InlineKeyboardMaker inlineKeyboardMaker;
     @Autowired
     private TelegramBot telegramBot;
     @Autowired
@@ -44,58 +48,53 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                 telegramBot.execute(sendMessage);
             }
             switch (text) {
-                case "Выбрать приют для кошек" -> catMenu(updates);
-                case "Выбрать приют для собак" -> dogMenu(updates);
+                case "Выбрать приют для кошек" -> {
+//                    SendMessage sendMessage = new SendMessage(chatId, "Вы выбрали приют для котов, далее выберите нужный вам пункт меню");
+//                    sendMessage.replyMarkup(replyKeyboardMaker.getStepMenuKeyboard());
+//                    telegramBot.execute(sendMessage);
+//                    stepOneCatMenu("Выбрать приют для кошек");
+                    catStepMenu(updates);
+                }
+
+//                case "Выбрать приют для собак" -> dogStepMenu(updates);
             }
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
 
-    private void catMenu(List<Update> updates) {
+        private void catStepMenu(List<Update> updates) {
         updates.forEach(update -> {
             String text = update.message().text();
             Long chatId = update.message().chat().id();
-            if ("Выбрать приют для кошек".equalsIgnoreCase(text)) {
-                SendMessage catMessage = new SendMessage(chatId, "Вы выбрали кошачий приют");
-                catMessage.replyMarkup(replyKeyboardMaker.getCatMenuKeyboard());
-                telegramBot.execute(catMessage);
-            }
-            menuChanger(updates);
-        });
-    }
-
-    private void menuChanger(List<Update> updates) {
-        updates.forEach(update -> {
-            String text = update.message().text();
-            Long chatId = update.message().chat().id();
-            System.out.println("+++++++++++++++++++++++++++");
-            System.out.println(text);
-            System.out.println(chatId);
-            System.out.println("+++++++++++++++++++++++++++");
-            if (text.equals("Инфо про кошачий приют")) {
-                String info = shelterBotConfiguration.catShelter().getInfo();
-                SendMessage infoMessage = new SendMessage(chatId, info);
-                telegramBot.execute(infoMessage);
-//                infoMenu(chatId);
+            SendMessage sendMessage = new SendMessage(chatId, "Вы выбрали приют для котов, далее выберите нужный вам пункт меню");
+            sendMessage.replyMarkup(replyKeyboardMaker.getStepMenuKeyboard());
+            telegramBot.execute(sendMessage);
+            switch (text) {
+                case "Узнать информацию о приюте" -> stepOneCatMenu(updates);
+//                case "Как взять животное из приюта" ->
+//                case "Прислать отчет о питомце" ->
+//                case "Позвать волонтера" ->
             }
         });
     }
-
-//    private void infoMenu(Long chatId) {
-//        String info = shelterBotConfiguration.catShelter().getInfo();
-//        System.out.println(info);
-//        SendMessage infoMessage = new SendMessage(chatId, info);
-//        telegramBot.execute(infoMessage);
-//    }
-
-    private void dogMenu(List<Update> updates) {
+    private void stepOneCatMenu(List<Update> updates) {
         updates.forEach(update -> {
             String text = update.message().text();
             Long chatId = update.message().chat().id();
-            if ("Выбрать приют для кошек".equalsIgnoreCase(text)) {
-                SendMessage dogMessage = new SendMessage(chatId, "Вы выбрали собачий приют");
-                dogMessage.replyMarkup(replyKeyboardMaker.getDogMenuKeyboard());
-                telegramBot.execute(dogMessage);
+            SendMessage sendMessage = new SendMessage(chatId, "Вы перешли в меню консультации с новым пользователем кошачьего приюта, выберите нужный вам пункт");
+            sendMessage.replyMarkup(replyKeyboardMaker.getCatMenuKeyboard());
+            telegramBot.execute(sendMessage);
+            switch (text) {
+                case "Узнать информацию о приюте" -> {
+                    String info = shelterBotConfiguration.catShelter().getInfo();
+                    SendMessage infoMessage = new SendMessage(chatId, info);
+                    telegramBot.execute(infoMessage);
+                }
+//                case "ПРО ОХРАНУ КОТЫ" ->
+//                case "РЕКОМЕНДАЦИИ КОТЫ" ->
+//                case "КОНТАКТЫ КОТЫ" ->
+//                case "ПОЗВАТЬ ВОЛОНТЕРА" ->
+//                case "волонтер" ->
             }
         });
     }
