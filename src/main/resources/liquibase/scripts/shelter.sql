@@ -1,11 +1,6 @@
 -- liquibase formatted sql
 --
 -- changeset name:1
-create table user (
-    id bigserial primary key,
-    game text not null,
-    phoneNumber bigint not null
-);
 
 create table cat_shelter (
     id bigserial primary key,
@@ -43,4 +38,10 @@ create table volunteer (
     surname text not null,
     phone text not null,
     email text not null
+);
+
+create table user (
+    id bigserial primary key,
+    game text not null,
+    phoneNumber bigint not null
 );
