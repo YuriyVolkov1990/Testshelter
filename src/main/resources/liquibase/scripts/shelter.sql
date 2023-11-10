@@ -1,5 +1,4 @@
 -- liquibase formatted sql
---
 -- changeset name:1
 
 create table cat_shelter (
