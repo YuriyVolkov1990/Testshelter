@@ -35,3 +35,8 @@ create table volunteer (
     phone text not null,
     email text not null
 );
+create table user (
+    id bigserial primary key,
+    game text not null,
+    phone_number bigserial not null
+);
