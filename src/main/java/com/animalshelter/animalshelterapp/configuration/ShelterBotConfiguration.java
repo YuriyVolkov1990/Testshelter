@@ -29,7 +29,7 @@ public class ShelterBotConfiguration{
 
     @Bean
     public CatShelter catShelter() {
-        return new CatShelter(0L, "aaaaa", "bbbbb", "ccccc", "ddsdgsdgsd");
+        return new CatShelter(0L, "Расписание работы приюта и адрес, схема проезда", "Контактные данные охраны для оформления пропуска на машину", "Общие рекомендации о технике безопасности на территории приюта", "ddsdgsdgsd");
     }
 }
 //    @Override

@@ -56,37 +56,51 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
             }
             if ("/start".equalsIgnoreCase(text)) {
                 SendMessage sendMessage = new SendMessage(chatId, "Выберите приют");
-                sendMessage.replyMarkup(replyKeyboardMaker.getMainMenuKeyboard());
+                sendMessage.replyMarkup(inlineKeyboardMaker.inlineChooseShelter());
                 telegramBot.execute(sendMessage);
             }
             switch (text) {
                 case "Выбрать приют для кошек" -> {
                     SendMessage sendMessage = new SendMessage(chatId, "Вы выбрали приют для котов, далее выберите нужный вам пункт меню");
-                    sendMessage.replyMarkup(inlineKeyboardMaker.inlineKeyboardMarkup());
+                    sendMessage.replyMarkup(inlineKeyboardMaker.inlineChooseStep());
                     telegramBot.execute(sendMessage);
                 }
                 case "Узнать информацию о приюте" -> {
+                    SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем кошачьего приюта, выберите нужный вам пункт");
+                    sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOneCat());
+                    telegramBot.execute(sendMessage);
+                }
+                case "Расписание работы приюта" -> {
                     String info = shelterBotConfiguration.catShelter().getInfo();
                     SendMessage infoMessage = new SendMessage(chatId, info);
                     telegramBot.execute(infoMessage);
                 }
-                case "Как взять животное из приюта" -> {
-                    String info = shelterBotConfiguration.catShelter().getInfo();
+                case "Оформление пропуска на машину" -> {
+                    String info = shelterBotConfiguration.catShelter().getGuardData();
                     SendMessage infoMessage = new SendMessage(chatId, info);
                     telegramBot.execute(infoMessage);
                 }
-                case "Прислать отчет о питомце" -> {
-                    String info = shelterBotConfiguration.catShelter().getInfo();
+                case "Техника безопасности" -> {
+                    String info = shelterBotConfiguration.catShelter().getRecommendation();
                     SendMessage infoMessage = new SendMessage(chatId, info);
                     telegramBot.execute(infoMessage);
                 }
-//                case "команда 1" -> {}
-//                case "команда 2" -> {}
-//                case "команда 3" -> {}
+                case "КОНТАКТЫ КОТЫ" -> {
+                    String info = shelterBotConfiguration.catShelter().getContact();
+                    SendMessage infoMessage = new SendMessage(chatId, info);
+                    telegramBot.execute(infoMessage);
+                }
+//                case "Прислать отчет о питомце" -> {
+//                    String info = shelterBotConfiguration.catShelter().getGuardData();
+//                    SendMessage infoMessage = new SendMessage(chatId, info);
+//                    telegramBot.execute(infoMessage);
+//                }
+
             }
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
+
 //    private void catStepMenu(List<Update> updates) {
 //        updates.forEach(update -> {
 //            String text = update.message().text();
@@ -124,10 +138,10 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 //                    SendMessage infoMessage = new SendMessage(chatId, info);
 //                    telegramBot.execute(infoMessage);
 //                }
-////                case "ПРО ОХРАНУ КОТЫ" ->
-////                case "РЕКОМЕНДАЦИИ КОТЫ" ->
-////                case "КОНТАКТЫ КОТЫ" ->
-////                case "ПОЗВАТЬ ВОЛОНТЕРА" ->
+//                case "ПРО ОХРАНУ КОТЫ" ->
+//                case "РЕКОМЕНДАЦИИ КОТЫ" ->
+//                case "КОНТАКТЫ КОТЫ" ->
+//                case "ПОЗВАТЬ ВОЛОНТЕРА" ->
 //            }
 //        });
 //    }

@@ -1,10 +1,10 @@
 package com.animalshelter.animalshelterapp.keyboard;
 
-public enum ButtonNameMainMenuEnum {
+public enum ButtonNameChooseShelterMenuEnum {
     CAT("Выбрать приют для кошек"),
     DOG("Выбрать приют для собак");
     private final String buttonName;
-    ButtonNameMainMenuEnum(String buttonName) {
+    ButtonNameChooseShelterMenuEnum(String buttonName) {
         this.buttonName = buttonName;
     }
 
