@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class ReplyKeyboardMaker {
 
     public ReplyKeyboardMarkup getMainMenuKeyboard() {
-        KeyboardButton m1 = new KeyboardButton(ButtonNameMainMenuEnum.CAT.getButtonName());
-        KeyboardButton m2 = new KeyboardButton(ButtonNameMainMenuEnum.DOG.getButtonName());
+        KeyboardButton m1 = new KeyboardButton(ButtonNameChooseShelterMenuEnum.CAT.getButtonName());
+        KeyboardButton m2 = new KeyboardButton(ButtonNameChooseShelterMenuEnum.DOG.getButtonName());
         KeyboardButton[] keyboard = new KeyboardButton[2];
         keyboard[0] = m1;
         keyboard[1] = m2;
@@ -21,9 +21,9 @@ public class ReplyKeyboardMaker {
         return replyKeyboardMarkup;
     }
     public ReplyKeyboardMarkup getStepMenuKeyboard() {
-        KeyboardButton s1 = new KeyboardButton(ButtonNameStepMenuEnum.STEP_ONE.getButtonName());
-        KeyboardButton s2 = new KeyboardButton(ButtonNameStepMenuEnum.STEP_TWO.getButtonName());
-        KeyboardButton s3 = new KeyboardButton(ButtonNameStepMenuEnum.STEP_THREE.getButtonName());
+        KeyboardButton s1 = new KeyboardButton(ButtonNameChooseStepMenuEnum.STEP_ONE.getButtonName());
+        KeyboardButton s2 = new KeyboardButton(ButtonNameChooseStepMenuEnum.STEP_TWO.getButtonName());
+        KeyboardButton s3 = new KeyboardButton(ButtonNameChooseStepMenuEnum.STEP_THREE.getButtonName());
         KeyboardButton[] keyboard = new KeyboardButton[3];
         keyboard[0] = s1;
         keyboard[1] = s2;
