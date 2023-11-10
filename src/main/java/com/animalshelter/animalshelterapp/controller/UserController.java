@@ -16,8 +16,8 @@ public class UserController {
     }
     @PostMapping
     public ResponseEntity<User> registerUser(@RequestBody User user) {
-        User registeredCat = userService.registerUser(user);
-        return ResponseEntity.ok(registeredCat);
+        User registeredUser = userService.registerUser(user);
+        return ResponseEntity.ok(registeredUser);
     }
     @GetMapping("/id")
     public ResponseEntity<User> findUserById(@PathVariable Long userId) {

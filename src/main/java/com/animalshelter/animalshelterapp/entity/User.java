@@ -1,24 +1,22 @@
 package com.animalshelter.animalshelterapp.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "game")
     private String game;
-    @Column(name = "phone_number")
-    private Long phoneNumber;
+    @Column(name = "phoneNumber")
+    private BigInteger phoneNumber;
 
     public User() {
     }
-    public User(Long id, String game, Long phoneNumber) {
+    public User(Long id, String game, BigInteger phoneNumber) {
         this.id = id;
         this.game = game;
         this.phoneNumber = phoneNumber;
@@ -40,11 +38,11 @@ public class User {
         this.game = game;
     }
 
-    public Long getPhoneNumber() {
+    public BigInteger getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(BigInteger phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
