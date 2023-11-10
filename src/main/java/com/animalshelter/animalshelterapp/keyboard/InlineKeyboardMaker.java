@@ -12,7 +12,7 @@ public class InlineKeyboardMaker {
         InlineKeyboardButton shelter2 = new InlineKeyboardButton(ButtonNameChooseShelterMenuEnum.DOG.getButtonName());
         shelter1.callbackData(ButtonNameChooseShelterMenuEnum.CAT.getButtonName());
         shelter2.callbackData(ButtonNameChooseShelterMenuEnum.DOG.getButtonName());;
-        InlineKeyboardButton[] keyboardButtons = new InlineKeyboardButton[3];
+        InlineKeyboardButton[] keyboardButtons = new InlineKeyboardButton[2];
         keyboardButtons[0] = shelter1;
         keyboardButtons[1] = shelter2;
         return new InlineKeyboardMarkup(keyboardButtons);
@@ -24,26 +24,17 @@ public class InlineKeyboardMaker {
         step1.callbackData(ButtonNameChooseStepMenuEnum.STEP_ONE.getButtonName());
         step2.callbackData(ButtonNameChooseStepMenuEnum.STEP_TWO.getButtonName());
         step3.callbackData(ButtonNameChooseStepMenuEnum.STEP_THREE.getButtonName());
-        InlineKeyboardButton[] keyboardButtons = new InlineKeyboardButton[3];
-        keyboardButtons[0] = step1;
-        keyboardButtons[1] = step2;
-        keyboardButtons[2] = step3;
-        return new InlineKeyboardMarkup(keyboardButtons);
+        return new InlineKeyboardMarkup().addRow(step1).addRow(step2).addRow(step3);
     }
     public InlineKeyboardMarkup inlineStepOneCat() {
-        InlineKeyboardButton i1 = new InlineKeyboardButton(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
-        InlineKeyboardButton i2 = new InlineKeyboardButton(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
-        InlineKeyboardButton i3 = new InlineKeyboardButton(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
-        InlineKeyboardButton i4 = new InlineKeyboardButton(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
-        i1.callbackData(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
-        i2.callbackData(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
-        i3.callbackData(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
-        i4.callbackData(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
-        InlineKeyboardButton[] keyboardButtons = new InlineKeyboardButton[4];
-        keyboardButtons[0] = i1;
-        keyboardButtons[1] = i2;
-        keyboardButtons[2] = i3;
-        keyboardButtons[3] = i4;
-        return new InlineKeyboardMarkup(keyboardButtons);
+        InlineKeyboardButton stepOne1 = new InlineKeyboardButton(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
+        InlineKeyboardButton stepOne2 = new InlineKeyboardButton(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
+        InlineKeyboardButton stepOne3 = new InlineKeyboardButton(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
+        InlineKeyboardButton stepOne4 = new InlineKeyboardButton(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
+        stepOne1.callbackData(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
+        stepOne2.callbackData(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
+        stepOne3.callbackData(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
+        stepOne4.callbackData(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
+        return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
     }
 }
