@@ -1,6 +1,7 @@
 package com.animalshelter.animalshelterapp.configuration;
 
 import com.animalshelter.animalshelterapp.entity.CatShelter;
+import com.animalshelter.animalshelterapp.entity.DogShelter;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.DeleteMyCommands;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +30,11 @@ public class ShelterBotConfiguration{
 
     @Bean
     public CatShelter catShelter() {
-        return new CatShelter(0L, "Расписание работы приюта и адрес, схема проезда", "Контактные данные охраны для оформления пропуска на машину", "Общие рекомендации о технике безопасности на территории приюта", "ddsdgsdgsd");
+        return new CatShelter(0L, "Расписание работы приюта и адрес, схема проезда для кошачьего приюта", "Контактные данные охраны для оформления пропуска на машину для кошачьего приюта", "Общие рекомендации о технике безопасности на территории кошачьего приюта", "ddsdgsdgsd");
+    }
+    @Bean
+    public DogShelter dogShelter() {
+        return new DogShelter(0L, "Расписание работы приюта и адрес, схема проезда для собачьего приюта", "Контактные данные охраны для оформления пропуска на машину для собачьего приюта", "Общие рекомендации о технике безопасности на территории собачьего приюта", "ddsdgsdgsd");
     }
 }
 //    @Override

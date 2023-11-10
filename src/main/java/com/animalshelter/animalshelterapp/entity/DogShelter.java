@@ -29,7 +29,7 @@ public class DogShelter {
     @Column(name = "contact")
     private String contact;
 
-    public DogShelter(Long id, String name, String info, String guard_data, String recommendation, String contact) {
+    public DogShelter(Long id, String info, String guard_data, String recommendation, String contact) {
         this.id = id;
         this.info = info;
         this.guard_data = guard_data;

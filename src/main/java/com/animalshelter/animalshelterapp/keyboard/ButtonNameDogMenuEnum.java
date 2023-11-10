@@ -1,11 +1,11 @@
 package com.animalshelter.animalshelterapp.keyboard;
 
 public enum ButtonNameDogMenuEnum  {
-    INFO_DOG("Инфо про собачий приют"),
+    INFO_DOG("Расписание работы приюта"),
 
-    GUARD_DOG("ПРО ОХРАНУ СОБАКИ"),
+    GUARD_DOG("Контактные данные охраны"),
 
-    RECOMMEND_DOG("РЕКОМЕНДАЦИИ СОБАКИ"),
+    RECOMMEND_DOG("Техника безопасности"),
 
     CONTACT_DOG("КОНТАКТЫ СОБАКИ"),
     VOLUNTEER("ПОЗВАТЬ ВОЛОНТЕРА"),

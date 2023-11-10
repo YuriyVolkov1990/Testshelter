@@ -2,7 +2,7 @@ package com.animalshelter.animalshelterapp.keyboard;
 
 public enum ButtonNameCatMenuEnum {
     INFO_CAT("Расписание работы приюта"),
-    GUARD_CAT("Оформление пропуска на машину"),
+    GUARD_CAT("Контактные данные охраны"),
     RECOMMEND_CAT("Техника безопасности"),
     CONTACT_CAT("КОНТАКТЫ КОТЫ"),
     VOLUNTEER("ПОЗВАТЬ ВОЛОНТЕРА");
