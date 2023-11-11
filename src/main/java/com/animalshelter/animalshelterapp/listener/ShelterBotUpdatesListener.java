@@ -16,11 +16,13 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class ShelterBotUpdatesListener implements UpdatesListener {
-
     private final Logger logger = LoggerFactory.getLogger(ShelterBotUpdatesListener.class);
+    private static Pattern PATTERN = Pattern.compile("([а-яА-ЯёЁa-zA-Z]*)\\s([а-яА-ЯёЁa-zA-Z]*)\\s(\\+?\\d+([\\(\\s\\-]?\\d+[\\)\\s\\-]?[\\d\\s\\-]+)?)");
     @Autowired
     private InlineKeyboardMaker inlineKeyboardMaker;
     @Autowired
@@ -40,6 +42,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         updates.forEach(update -> {
             String text;
             Long chatId;
+            Matcher matcher = PATTERN.matcher(text);
             if (update.message() != null) {
                 text = update.message().text();
                 chatId = update.message().chat().id();
@@ -118,6 +121,8 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 
                 }
                 case "КОНТАКТЫ КОТЫ" -> {
+                    SendMessage sendMessage = new SendMessage(chatId, "Введите свои контактные данные в формате 'Имя Фамилия НомерТелефона', чтобы мы могли с вами связаться");
+                    telegramBot.execute(sendMessage);
                 }
 //                case "Прислать отчет о питомце" -> {
 //                    String info = shelterBotConfiguration.catShelter().getGuardData();
