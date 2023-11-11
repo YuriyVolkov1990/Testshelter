@@ -11,7 +11,7 @@ public class Users {
     private Long id;
     @Column(name = "game")
     private String game;
-    @Column(name = "phoneNumber")
+    @Column(name = "phonenumber")
     private Long phoneNumber;
 
     public Users() {

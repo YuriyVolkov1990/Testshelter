@@ -7,7 +7,7 @@ public enum ButtonNameDogMenuEnum  {
 
     RECOMMEND_DOG("Техника безопасности"),
 
-    CONTACT_DOG("КОНТАКТЫ СОБАКИ"),
+    CONTACT_DOG("Оставить контактные данные для связи"),
     VOLUNTEER("ПОЗВАТЬ ВОЛОНТЕРА"),
     ;
 

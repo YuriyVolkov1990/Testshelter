@@ -4,7 +4,7 @@ public enum ButtonNameCatMenuEnum {
     INFO_CAT("Расписание работы приюта"),
     GUARD_CAT("Контактные данные охраны"),
     RECOMMEND_CAT("Техника безопасности"),
-    CONTACT_CAT("КОНТАКТЫ КОТЫ"),
+    CONTACT_CAT("Оставить контактные данные для связи"),
     VOLUNTEER("ПОЗВАТЬ ВОЛОНТЕРА");
     private final String buttonName;
     ButtonNameCatMenuEnum(String buttonName) {

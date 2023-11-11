@@ -2,10 +2,14 @@ package com.animalshelter.animalshelterapp.listener;
 
 import com.animalshelter.animalshelterapp.configuration.ShelterBotConfiguration;
 import com.animalshelter.animalshelterapp.entity.CatShelter;
+import com.animalshelter.animalshelterapp.entity.Users;
 import com.animalshelter.animalshelterapp.keyboard.*;
+import com.animalshelter.animalshelterapp.repository.UsersRepository;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
-import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.*;
+import com.pengrad.telegrambot.request.AbstractSendRequest;
+import com.pengrad.telegrambot.request.BaseRequest;
 import com.pengrad.telegrambot.request.GetUpdates;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.GetUpdatesResponse;
@@ -22,13 +26,15 @@ import java.util.regex.Pattern;
 @Service
 public class ShelterBotUpdatesListener implements UpdatesListener {
     private final Logger logger = LoggerFactory.getLogger(ShelterBotUpdatesListener.class);
-    private static Pattern PATTERN = Pattern.compile("([а-яА-ЯёЁa-zA-Z]*)\\s([а-яА-ЯёЁa-zA-Z]*)\\s(\\+?\\d+([\\(\\s\\-]?\\d+[\\)\\s\\-]?[\\d\\s\\-]+)?)");
+    private static Pattern PATTERN = Pattern.compile("([а-яА-ЯёЁa-zA-Z]*)\\s(\\+?\\d+([\\(\\s\\-]?\\d+[\\s\\-]?[\\d\\s\\-]+)?)");
     @Autowired
     private InlineKeyboardMaker inlineKeyboardMaker;
     @Autowired
     private TelegramBot telegramBot;
     @Autowired
     private CatShelter catShelter;
+    @Autowired
+    private UsersRepository usersRepository;
     @PostConstruct
     public void init() {
         telegramBot.setUpdatesListener(this);
@@ -42,7 +48,6 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         updates.forEach(update -> {
             String text;
             Long chatId;
-            Matcher matcher = PATTERN.matcher(text);
             if (update.message() != null) {
                 text = update.message().text();
                 chatId = update.message().chat().id();
@@ -120,16 +125,27 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     }
 
                 }
-                case "КОНТАКТЫ КОТЫ" -> {
+                case "Оставить контактные данные для связи" -> {
                     SendMessage sendMessage = new SendMessage(chatId, "Введите свои контактные данные в формате 'Имя Фамилия НомерТелефона', чтобы мы могли с вами связаться");
                     telegramBot.execute(sendMessage);
-                }
+                    }
+            }
+            Matcher matcher = PATTERN.matcher(text);
+            if (matcher.matches()) {
+                String name = matcher.group(1);
+                Long phoneNumber = Long.valueOf(matcher.group(2));
+                Users user = new Users();
+                user.setGame(name);
+                user.setPhoneNumber(phoneNumber);
+                usersRepository.save(user);
+            }
 //                case "Прислать отчет о питомце" -> {
 //                    String info = shelterBotConfiguration.catShelter().getGuardData();
 //                    SendMessage infoMessage = new SendMessage(chatId, info);
 //                    telegramBot.execute(infoMessage);
 //                }
-            }
+
+
             });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
