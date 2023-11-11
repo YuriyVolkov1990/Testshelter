@@ -1,22 +1,22 @@
 package com.animalshelter.animalshelterapp.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
-public class User {
+@Table(name = "users")
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "game")
     private String game;
     @Column(name = "phoneNumber")
-    private BigInteger phoneNumber;
+    private Long phoneNumber;
 
-    public User() {
+    public Users() {
     }
-    public User(Long id, String game, BigInteger phoneNumber) {
+    public Users(Long id, String game, Long phoneNumber) {
         this.id = id;
         this.game = game;
         this.phoneNumber = phoneNumber;
@@ -38,11 +38,11 @@ public class User {
         this.game = game;
     }
 
-    public BigInteger getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(BigInteger phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -50,8 +50,8 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(game, user.game) && Objects.equals(phoneNumber, user.phoneNumber);
+        Users users = (Users) o;
+        return Objects.equals(id, users.id) && Objects.equals(game, users.game) && Objects.equals(phoneNumber, users.phoneNumber);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Users{" +
                 "id=" + id +
                 ", game='" + game + '\'' +
                 ", phoneNumber=" + phoneNumber +
