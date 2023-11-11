@@ -73,7 +73,7 @@ public class CatShelter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CatShelter that = (CatShelter) o;
-        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
+        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation);
     }
 
     @Override
