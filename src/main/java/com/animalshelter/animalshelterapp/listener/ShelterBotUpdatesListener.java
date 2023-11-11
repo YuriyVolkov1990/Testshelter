@@ -118,9 +118,6 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 
                 }
                 case "КОНТАКТЫ КОТЫ" -> {
-                    String contacts = shelterBotConfiguration.catShelter().getContact();
-                    SendMessage contactsMessage = new SendMessage(chatId, contacts);
-                    telegramBot.execute(contactsMessage);
                 }
 //                case "Прислать отчет о питомце" -> {
 //                    String info = shelterBotConfiguration.catShelter().getGuardData();

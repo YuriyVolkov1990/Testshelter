@@ -5,16 +5,14 @@ create table cat_shelter (
     id bigserial primary key,
     info text not null,
     guard_data text not null,
-    recommendation text not null,
-    contact text not null
+    recommendation text not null
 );
 
 create table dog_shelter (
     id bigserial primary key,
     info text not null,
     guard_data text not null,
-    recommendation text not null,
-    contact text not null
+    recommendation text not null
 );
 
 create table cat (
