@@ -15,8 +15,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "dog_shelter")
 public class DogShelter {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,15 +24,12 @@ public class DogShelter {
     private String guard_data;
     @Column(name = "recommendation")
     private String recommendation;
-    @Column(name = "contact")
-    private String contact;
 
-    public DogShelter(Long id, String info, String guard_data, String recommendation, String contact) {
+    public DogShelter(Long id, String info, String guard_data, String recommendation) {
         this.id = id;
         this.info = info;
         this.guard_data = guard_data;
         this.recommendation = recommendation;
-        this.contact = contact;
     }
     public DogShelter(Long id) {
     }
@@ -72,25 +67,17 @@ public class DogShelter {
         this.recommendation = recommendation;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DogShelter that = (DogShelter) o;
-        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation) && Objects.equals(contact, that.contact);
+        return Objects.equals(id, that.id) && Objects.equals(info, that.info) && Objects.equals(guard_data, that.guard_data) && Objects.equals(recommendation, that.recommendation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, info, guard_data, recommendation, contact);
+        return Objects.hash(id, info, guard_data, recommendation);
     }
 
     @Override
@@ -100,7 +87,6 @@ public class DogShelter {
                 ", info='" + info + '\'' +
                 ", guard_data='" + guard_data + '\'' +
                 ", recommendation='" + recommendation + '\'' +
-                ", contact='" + contact + '\'' +
                 '}';
     }
 }

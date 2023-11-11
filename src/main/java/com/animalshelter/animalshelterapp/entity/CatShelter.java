@@ -15,7 +15,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "cat_shelter")
 public class CatShelter {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,15 +24,12 @@ public class CatShelter {
     private String guard_data;
     @Column(name = "recommendation")
     private String recommendation;
-    @Column(name = "contact")
-    private String contact;
 
-    public CatShelter(Long id, String info, String guard_data, String recommendation, String contact) {
+    public CatShelter(Long id, String info, String guard_data, String recommendation) {
         this.id = id;
         this.info = info;
         this.guard_data = guard_data;
         this.recommendation = recommendation;
-        this.contact = contact;
     }
 
     public CatShelter() {
@@ -72,14 +68,6 @@ public class CatShelter {
         this.recommendation = recommendation;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,7 +78,7 @@ public class CatShelter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, info, guard_data, recommendation, contact);
+        return Objects.hash(id, info, guard_data, recommendation);
     }
 
     @Override
@@ -100,7 +88,6 @@ public class CatShelter {
                 ", info='" + info + '\'' +
                 ", guard_data='" + guard_data + '\'' +
                 ", recommendation='" + recommendation + '\'' +
-                ", contact='" + contact + '\'' +
                 '}';
     }
 }
