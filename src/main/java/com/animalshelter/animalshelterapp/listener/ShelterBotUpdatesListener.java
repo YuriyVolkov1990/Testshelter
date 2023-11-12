@@ -46,6 +46,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         updates.forEach(update -> {
             String text;
             Long chatId;
+
             if (update.message() != null) {
                 text = update.message().text();
                 chatId = update.message().chat().id();
@@ -58,6 +59,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                 sendMessage.replyMarkup(inlineKeyboardMaker.inlineChooseShelter());
                 telegramBot.execute(sendMessage);
             }
+
             switch (text) {
                 case "Выбрать приют для кошек" -> {
                     SendMessage sendMessage = new SendMessage(chatId, "Вы выбрали приют для котов, далее выберите нужный вам пункт меню");
@@ -74,11 +76,11 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем кошачьего приюта, выберите:");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOne());
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOneCat());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем собачьего приюта, выберите:");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOne());
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOneDog());
                         telegramBot.execute(sendMessage);
                     }
                 }
@@ -94,7 +96,6 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                         SendMessage infoMessage = new SendMessage(chatId, info);
                         telegramBot.execute(infoMessage);
                     }
-
                 }
                 case "Контактные данные охраны" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
@@ -126,16 +127,16 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                 case "Оставить контактные данные для связи" -> {
                     SendMessage sendMessage = new SendMessage(chatId, "Введите свои контактные данные в формате 'Имя Фамилия НомерТелефона', чтобы мы могли с вами связаться");
                     telegramBot.execute(sendMessage);
+                    Matcher matcher = PATTERN.matcher(text);
+                    if (matcher.matches()) {
+                        String name = matcher.group(1);
+                        Long phoneNumber = Long.valueOf(matcher.group(2));
+                        Users user = new Users();
+                        user.setGame(name);
+                        user.setPhoneNumber(phoneNumber);
+                        usersRepository.save(user);
                     }
-            }
-            Matcher matcher = PATTERN.matcher(text);
-            if (matcher.matches()) {
-                String name = matcher.group(1);
-                Long phoneNumber = Long.valueOf(matcher.group(2));
-                Users user = new Users();
-                user.setGame(name);
-                user.setPhoneNumber(phoneNumber);
-                usersRepository.save(user);
+                }
             }
 //                case "Прислать отчет о питомце" -> {
 //                    String info = shelterBotConfiguration.catShelter().getGuardData();
@@ -144,7 +145,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 //                }
 
 
-            });
+        });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
 }

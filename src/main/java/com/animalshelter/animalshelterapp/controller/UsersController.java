@@ -36,4 +36,10 @@ public class UsersController {
         }
         return ResponseEntity.ok(updatedUser);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Users> deleteFaculty(@PathVariable Long id) {
+        findUserById(id);
+        Users deletedUsers = usersService.deleteUser(id);
+        return ResponseEntity.ok(deletedUsers);
+    }
 }
