@@ -34,7 +34,7 @@ public class InlineKeyboardMaker {
         stepOne1.callbackData(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
         stepOne2.callbackData(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
         stepOne3.callbackData(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
-        stepOne4.callbackData(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
+        stepOne4.callbackData("Оставить контактные данные");
         return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
     }
     public InlineKeyboardMarkup inlineStepOneDog() {
@@ -45,7 +45,7 @@ public class InlineKeyboardMaker {
         stepOne1.callbackData(ButtonNameDogMenuEnum.INFO_DOG.getButtonName());
         stepOne2.callbackData(ButtonNameDogMenuEnum.GUARD_DOG.getButtonName());
         stepOne3.callbackData(ButtonNameDogMenuEnum.RECOMMEND_DOG.getButtonName());
-        stepOne4.callbackData(ButtonNameDogMenuEnum.CONTACT_DOG.getButtonName());
+        stepOne4.callbackData("Оставить контактные данные");
         return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
     }
 }
