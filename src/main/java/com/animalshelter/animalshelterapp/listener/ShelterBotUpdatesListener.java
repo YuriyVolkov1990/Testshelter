@@ -128,6 +128,19 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     SendMessage sendMessage = new SendMessage(chatId, "Введите свои контактные данные в формате 'Имя Фамилия НомерТелефона', чтобы мы могли с вами связаться");
                     telegramBot.execute(sendMessage);
                 }
+                case "Правила знакомства с животным" -> {
+                    GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
+                    List<Update> updates1 = updatesResponse.updates();
+                    if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
+                        SendMessage sendMessage = new SendMessage(chatId, "Правила знакомства с животным до того, как забрать его из приюта");
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
+                        telegramBot.execute(sendMessage);
+                    } else {
+                        SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем собачьего приюта, выберите:");
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
+                        telegramBot.execute(sendMessage);
+                    }
+                }
             }
 //                case "Прислать отчет о питомце" -> {
 //                    String info = shelterBotConfiguration.catShelter().getGuardData();
