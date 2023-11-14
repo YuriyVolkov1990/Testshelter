@@ -132,7 +132,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
-                        SendMessage sendMessage = new SendMessage(chatId, "Правила знакомства с животным до того, как забрать его из приюта");
+                        SendMessage sendMessage = new SendMessage(chatId, "Правила знакомства с животным");
                         sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
@@ -161,4 +161,12 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
     }
 }
-
+//"Правила знакомства с животным до того, как забрать его из приюта"
+//"Список документов, необходимых для того, чтобы взять животное изприюта"
+//"Список рекомендаций по транспортировке животного"
+//"Список рекомендаций по обустройству дома для щенка/котенка"
+//"Список рекомендаций по обустройству дома для взрослого животного"
+//"Список рекомендаций по обустройству дома для животного сограниченными возможностями (зрение, передвижение)"
+//"Советы кинолога по первичному общению с собакой"
+//"Рекомендации по проверенным кинологам для дальнейшего обращения к ним"
+//"Список причин, почему могут отказать и не дать забрать собаку изприюта"
