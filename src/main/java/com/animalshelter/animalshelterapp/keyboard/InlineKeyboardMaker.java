@@ -28,25 +28,14 @@ public class InlineKeyboardMaker {
         step3.callbackData(ButtonNameChooseStepMenuEnum.STEP_THREE.getButtonName());
         return new InlineKeyboardMarkup().addRow(step1).addRow(step2).addRow(step3);
     }
-    public InlineKeyboardMarkup inlineStepOneCat() {
-        InlineKeyboardButton stepOne1 = new InlineKeyboardButton(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
-        InlineKeyboardButton stepOne2 = new InlineKeyboardButton(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
-        InlineKeyboardButton stepOne3 = new InlineKeyboardButton(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
-        InlineKeyboardButton stepOne4 = new InlineKeyboardButton(ButtonNameCatMenuEnum.CONTACT_CAT.getButtonName());
-        stepOne1.callbackData(ButtonNameCatMenuEnum.INFO_CAT.getButtonName());
-        stepOne2.callbackData(ButtonNameCatMenuEnum.GUARD_CAT.getButtonName());
-        stepOne3.callbackData(ButtonNameCatMenuEnum.RECOMMEND_CAT.getButtonName());
-        stepOne4.callbackData("Оставить контактные данные");
-        return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
-    }
-    public InlineKeyboardMarkup inlineStepOneDog() {
-        InlineKeyboardButton stepOne1 = new InlineKeyboardButton(ButtonNameDogMenuEnum.INFO_DOG.getButtonName());
-        InlineKeyboardButton stepOne2 = new InlineKeyboardButton(ButtonNameDogMenuEnum.GUARD_DOG.getButtonName());
-        InlineKeyboardButton stepOne3 = new InlineKeyboardButton(ButtonNameDogMenuEnum.RECOMMEND_DOG.getButtonName());
-        InlineKeyboardButton stepOne4 = new InlineKeyboardButton(ButtonNameDogMenuEnum.CONTACT_DOG.getButtonName());
-        stepOne1.callbackData(ButtonNameDogMenuEnum.INFO_DOG.getButtonName());
-        stepOne2.callbackData(ButtonNameDogMenuEnum.GUARD_DOG.getButtonName());
-        stepOne3.callbackData(ButtonNameDogMenuEnum.RECOMMEND_DOG.getButtonName());
+    public InlineKeyboardMarkup inlineStepOne() {
+        InlineKeyboardButton stepOne1 = new InlineKeyboardButton(ButtonNameEnum.INFO.getButtonName());
+        InlineKeyboardButton stepOne2 = new InlineKeyboardButton(ButtonNameEnum.GUARD.getButtonName());
+        InlineKeyboardButton stepOne3 = new InlineKeyboardButton(ButtonNameEnum.RECOMMEND.getButtonName());
+        InlineKeyboardButton stepOne4 = new InlineKeyboardButton(ButtonNameEnum.CONTACT.getButtonName());
+        stepOne1.callbackData(ButtonNameEnum.INFO.getButtonName());
+        stepOne2.callbackData(ButtonNameEnum.GUARD.getButtonName());
+        stepOne3.callbackData(ButtonNameEnum.RECOMMEND.getButtonName());
         stepOne4.callbackData("Оставить контактные данные");
         return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
     }

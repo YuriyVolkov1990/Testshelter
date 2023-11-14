@@ -76,11 +76,11 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем кошачьего приюта, выберите:");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOneCat());
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOne());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем собачьего приюта, выберите:");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOneDog());
+                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepOne());
                         telegramBot.execute(sendMessage);
                     }
                 }
