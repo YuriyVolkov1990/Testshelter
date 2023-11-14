@@ -5,6 +5,8 @@ import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
 import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+
 @Component
 public class InlineKeyboardMaker {
     public InlineKeyboardMarkup inlineChooseShelter() {

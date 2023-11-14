@@ -124,18 +124,9 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     }
 
                 }
-                case "Оставить контактные данные для связи" -> {
+                case "Оставить контактные данные" -> {
                     SendMessage sendMessage = new SendMessage(chatId, "Введите свои контактные данные в формате 'Имя Фамилия НомерТелефона', чтобы мы могли с вами связаться");
                     telegramBot.execute(sendMessage);
-                    Matcher matcher = PATTERN.matcher(text);
-                    if (matcher.matches()) {
-                        String name = matcher.group(1);
-                        Long phoneNumber = Long.valueOf(matcher.group(2));
-                        Users user = new Users();
-                        user.setGame(name);
-                        user.setPhoneNumber(phoneNumber);
-                        usersRepository.save(user);
-                    }
                 }
             }
 //                case "Прислать отчет о питомце" -> {
@@ -143,7 +134,15 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
 //                    SendMessage infoMessage = new SendMessage(chatId, info);
 //                    telegramBot.execute(infoMessage);
 //                }
-
+            Matcher matcher = PATTERN.matcher(text);
+            if (matcher.matches()) {
+                String name = matcher.group(1);
+                Long phoneNumber = Long.valueOf(matcher.group(2));
+                Users user = new Users();
+                user.setGame(name);
+                user.setPhoneNumber(phoneNumber);
+                usersRepository.save(user);
+            }
 
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
