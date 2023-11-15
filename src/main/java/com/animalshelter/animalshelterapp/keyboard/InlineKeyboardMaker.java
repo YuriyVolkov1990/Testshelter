@@ -57,16 +57,25 @@ public class InlineKeyboardMaker {
         stepTwo1.callbackData(ButtonNameEnum.RULES.getButtonName());
         stepTwo2.callbackData(ButtonNameEnum.DOCLIST.getButtonName());
         stepTwo3.callbackData(ButtonNameEnum.TRANSP.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.HOMESML.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.HOMEBIG.getButtonName());
-        stepTwo1.callbackData(ButtonNameEnum.HOME.getButtonName());
-        stepTwo2.callbackData(ButtonNameEnum.KINOLOG.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.KINOLOGREC.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.REASON.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.HOMEBIG.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.CONTACT.getButtonName());
-        stepTwo3.callbackData(ButtonNameEnum.VOLUNTEER.getButtonName());
-        stepTwo4.callbackData("Оставить контактные данные");
-        return new InlineKeyboardMarkup().addRow(stepTwo1).addRow(stepTwo2).addRow(stepTwo3).addRow(stepTwo4);
+        stepTwo4.callbackData(ButtonNameEnum.HOMESML.getButtonName());
+        stepTwo5.callbackData(ButtonNameEnum.HOMEBIG.getButtonName());
+        stepTwo6.callbackData(ButtonNameEnum.HOME.getButtonName());
+        stepTwo7.callbackData(ButtonNameEnum.KINOLOG.getButtonName());
+        stepTwo8.callbackData(ButtonNameEnum.KINOLOGREC.getButtonName());
+        stepTwo9.callbackData(ButtonNameEnum.REASON.getButtonName());
+        stepTwo10.callbackData("Оставить контактные данные");
+        stepTwo11.callbackData(ButtonNameEnum.VOLUNTEER.getButtonName());
+        return new InlineKeyboardMarkup()
+                .addRow(stepTwo1)
+                .addRow(stepTwo2)
+                .addRow(stepTwo3)
+                .addRow(stepTwo4)
+                .addRow(stepTwo5)
+                .addRow(stepTwo6)
+                .addRow(stepTwo7)
+                .addRow(stepTwo8)
+                .addRow(stepTwo9)
+                .addRow(stepTwo10)
+                .addRow(stepTwo11);
     }
 }
