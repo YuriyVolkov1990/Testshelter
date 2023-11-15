@@ -136,7 +136,7 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                         sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
-                        SendMessage sendMessage = new SendMessage(chatId, "Вы в меню консультации с новым пользователем собачьего приюта, выберите:");
+                        SendMessage sendMessage = new SendMessage(chatId, "Консультация с потенциальным хозяином собаки из приюта");
                         sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
