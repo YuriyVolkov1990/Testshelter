@@ -27,7 +27,10 @@ public class InlineKeyboardMaker {
         step1.callbackData(ButtonNameChooseStepMenuEnum.STEP_ONE.getButtonName());
         step2.callbackData(ButtonNameChooseStepMenuEnum.STEP_TWO.getButtonName());
         step3.callbackData(ButtonNameChooseStepMenuEnum.STEP_THREE.getButtonName());
-        return new InlineKeyboardMarkup().addRow(step1).addRow(step2).addRow(step3);
+        return new InlineKeyboardMarkup()
+                .addRow(step1)
+                .addRow(step2)
+                .addRow(step3);
     }
     public InlineKeyboardMarkup inlineStepOne() {
         InlineKeyboardButton stepOne1 = new InlineKeyboardButton(ButtonNameEnum.INFO.getButtonName());
@@ -39,7 +42,11 @@ public class InlineKeyboardMaker {
         stepOne2.callbackData(ButtonNameEnum.GUARD.getButtonName());
         stepOne3.callbackData(ButtonNameEnum.RECOMMEND.getButtonName());
         stepOne4.callbackData("Оставить контактные данные");
-        return new InlineKeyboardMarkup().addRow(stepOne1).addRow(stepOne2).addRow(stepOne3).addRow(stepOne4);
+        return new InlineKeyboardMarkup()
+                .addRow(stepOne1)
+                .addRow(stepOne2)
+                .addRow(stepOne3)
+                .addRow(stepOne4);
     }
 
     public Keyboard inlineStepTwo() {

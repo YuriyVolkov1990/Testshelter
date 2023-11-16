@@ -141,81 +141,69 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Правила знакомства с животным" -> {
+                case "Правила" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Правила знакомства с котом до того, как забрать его из приюта");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Правила знакомства с собакой до того, как забрать её из приюта");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Список небоходимых документов" -> {
+                case "Список" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Список документов, необходимых для того, чтобы взять кота изприюта");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Список документов, необходимых для того, чтобы взять собаку изприюта");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Рекомендации по транспортировке" -> {
+                case "Рекомендации транспорт" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Список рекомендаций по транспортировке кота");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Список рекомендаций по транспортировке собаки");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Рекомендаций по обустройству дома щенка/котёнка" -> {
+                case "Рекомендации щенок" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома котёнка");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома щенка");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Рекомендаций по обустройству дома взрослого животного" -> {
+                case "Рекомендаций большой" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома взрослого кота");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома взрослой собаки");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
-                case "Рекомендаций по обустройству дома животного с ограниченными возможностями" -> {
+                case "Рекомендаций огран" -> {
                     GetUpdatesResponse updatesResponse = telegramBot.execute(new GetUpdates());
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для котов, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома кота с ограниченными возможностями");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     } else {
                         SendMessage sendMessage = new SendMessage(chatId, "Рекомендаций по обустройству дома собаки с ограниченными возможностями");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
@@ -224,7 +212,6 @@ public class ShelterBotUpdatesListener implements UpdatesListener {
                     List<Update> updates1 = updatesResponse.updates();
                     if (updates1.get(0).callbackQuery().message().text().contains("Вы выбрали приют для собак, далее выберите нужный вам пункт меню")) {
                         SendMessage sendMessage = new SendMessage(chatId, "Советы кинолога по первичному общению с собакой");
-                        sendMessage.replyMarkup(inlineKeyboardMaker.inlineStepTwo());
                         telegramBot.execute(sendMessage);
                     }
                 }
